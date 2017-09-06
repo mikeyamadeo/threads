@@ -1,26 +1,17 @@
 import './style'
 import React from 'react'
-import { Route, Redirect, Link } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
+import { Div } from 'glamorous'
 import { Shop, Checkout } from './views'
-
-const Navigation = () => (
-  <div>
-    <nav>
-      <ul>
-        <li><Link to='/shop'>Shop</Link></li>
-        <li><Link to='/checkout'>Checkout</Link></li>
-      </ul>
-    </nav>
-  </div>
-)
+import Navigation, { NavHeight } from './components/Navigation'
 
 const App = () => (
-  <div>
+  <Div paddingTop={NavHeight}>
     <Navigation />
     <Redirect from='/' to='/shop' />
     <Route path='/shop' component={Shop} />
     <Route path='/checkout' component={Checkout} />
-  </div>
+  </Div>
 )
 
 export default App
