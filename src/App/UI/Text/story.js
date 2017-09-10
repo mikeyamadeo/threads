@@ -1,47 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Nav, Div, Ul, Li } from 'glamorous'
-import { Link as LinkUi, Logo } from 'App/UI'
+import { storiesOf } from '@storybook/react'
+import { Link, Logo } from './index'
 
-export const NavHeight = '50px'
-
-const links = [ { label: 'Shop', route: './shop' } ]
-const Navigation = () => (
-  <Div
-    position='fixed'
-    top='0'
-    left='0'
-    width='100%'
-    backgroundColor='rgba(255, 255, 255, 0.95)'
-    height={NavHeight}
-    display='flex'
-    alignItems='center'
-  >
-    <Nav display='flex' width='100%' maxWidth='800px' margin='0 auto'>
-      <Logo mx={2} fontSize={4} />
-      <Div display='flex' justifyContent='space-between' flexGrow='1'>
-        <Ul display='flex' listStyle='none'>
-          {links.map((link, i) => (
-            <Li>
-              <LinkUi>
-                {styles => (
-                  <Link to={link.route} {...styles}>
-                    {link.label}
-                  </Link>
-                    )}
-              </LinkUi>
-            </Li>
-            ))}
-        </Ul>
-        <LinkUi>
-          {styles => <Cart styles={styles} />}
-        </LinkUi>
-      </Div>
-    </Nav>
-  </Div>
-)
-
-export default Navigation
+storiesOf('Logo', module).add('basic', () => (
+  <div>
+    <Logo fontSize={4} />
+  </div>
+))
+storiesOf('Link', module).add('basic', () => (
+  <div>
+    <Link>Shop</Link>
+  </div>
+)).add('active', () => (
+  <div>
+    <Link active>Shop</Link>
+  </div>
+)).add('svg', () => (
+  <div>
+    <Link active decoration='none'>
+      {linkStyles => <Cart styles={linkStyles} />}
+    </Link>
+  </div>
+))
 
 const Cart = ({ width = 22, height = 20, styles }) => (
   <svg
