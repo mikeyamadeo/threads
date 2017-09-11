@@ -14,7 +14,7 @@ WebFont.load({
 const useBaseStyles = Component => glamorous(Component)(fontSize, space)
 
 export const Logo = useBaseStyles(props => (
-  <span {...props} {...css({ fontFamily: 'Raleway', fontWeight: 100 })}>
+  <span {...props} css={{ fontFamily: 'Raleway', fontWeight: 100 }}>
     TFH
   </span>
 ))
