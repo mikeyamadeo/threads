@@ -1,4 +1,3 @@
-var webpack = require('webpack')
 var path = require('path')
 var appPath = path.resolve(__dirname, 'src')
 var buildPath = path.resolve(__dirname, 'public')
@@ -15,9 +14,5 @@ var config = getConfig({
   devServer: { contentBase: buildPath },
   html: isDev ? html.dev : html.prod
 })
-
-config.plugins = config.plugins.concat([
-  new webpack.ProvidePlugin({ Glamor: 'glamor/react' })
-])
 
 module.exports = config

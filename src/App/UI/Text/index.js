@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from 'glamor'
 import glamorous from 'glamorous'
 import WebFont from 'webfontloader'
-import { fontSize, space } from 'styled-system'
+import { fontSize, space, removeProps } from 'styled-system'
 import { baseFontSize, colors } from '../settings'
 
 css.global('html', { fontSize: baseFontSize })

@@ -1,28 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Nav, Div, Ul, Li } from 'glamorous'
-import { Link as LinkUi, Logo } from 'App/UI'
+import { Link as LinkUi, Logo, Flex } from 'App/UI'
 
 export const NavHeight = '50px'
 
 const links = [ { label: 'Shop', route: './shop' } ]
 const Navigation = () => (
-  <Div
+  <Flex
     position='fixed'
     top='0'
     left='0'
-    width='100%'
-    backgroundColor='rgba(255, 255, 255, 0.95)'
+    w='100%'
+    bg='rgba(255, 255, 255, 0.95)'
     height={NavHeight}
-    display='flex'
-    alignItems='center'
+    align='center'
   >
-    <Nav display='flex' width='100%' maxWidth='800px' margin='0 auto'>
+    <Flex is='nav' w='100%' maxWidth='800px' m='0 auto'>
       <Logo mx={2} fontSize={4} />
-      <Div display='flex' justifyContent='space-between' flexGrow='1'>
-        <Ul display='flex' listStyle='none'>
+      <Flex justify='space-between' align='center' flexGrow='1'>
+        <Flex is='ul' listStyle='none'>
           {links.map((link, i) => (
-            <Li>
+            <li>
               <LinkUi>
                 {styles => (
                   <Link to={link.route} {...styles}>
@@ -30,15 +28,15 @@ const Navigation = () => (
                   </Link>
                     )}
               </LinkUi>
-            </Li>
+            </li>
             ))}
-        </Ul>
+        </Flex>
         <LinkUi>
           {styles => <Cart styles={styles} />}
         </LinkUi>
-      </Div>
-    </Nav>
-  </Div>
+      </Flex>
+    </Flex>
+  </Flex>
 )
 
 export default Navigation

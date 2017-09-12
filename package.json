@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "glamor": "^2.20.37",
-    "glamorous": "^3.23.5",
+    "glamorous": "^4.8.0",
     "prop-types": "^15.5.10",
     "react": "15.3.2",
     "react-dom": "15.3.2",
