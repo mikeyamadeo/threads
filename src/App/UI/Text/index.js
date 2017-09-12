@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from 'glamor'
 import glamorous from 'glamorous'
 import WebFont from 'webfontloader'
-import { fontSize, space } from 'styled-system'
+import { fontSize, space, removeProps } from 'styled-system'
 import { baseFontSize, colors } from '../settings'
 
 css.global('html', { fontSize: baseFontSize })
@@ -14,7 +14,10 @@ WebFont.load({
 const useBaseStyles = Component => glamorous(Component)(fontSize, space)
 
 export const Logo = useBaseStyles(props => (
-  <span {...props} css={{ fontFamily: 'Raleway', fontWeight: 100 }}>
+  <span
+    {...removeProps(props)}
+    {...css({ fontFamily: 'Raleway', fontWeight: 100 })}
+  >
     TFH
   </span>
 ))
@@ -33,9 +36,10 @@ export const Link = useBaseStyles(({ active, decoration, children, ...rest }) =>
     paddingBottom: '2px'
   })
 
+  const props = removeProps(rest)
   if (typeof children === 'function') {
-    return <span {...rest}>{children(styles)}</span>
+    return <span {...props}>{children(styles)}</span>
   }
 
-  return <span {...rest} fontSize={2} {...styles}>{children}</span>
+  return <span {...props} fontSize={2} {...styles}>{children}</span>
 })

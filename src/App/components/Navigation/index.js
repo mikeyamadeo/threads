@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Nav, Div, Ul, Li } from 'glamorous'
 import { Link as LinkUi, Logo } from 'App/UI'
 
 export const NavHeight = '50px'
 
-const links = [ { label: 'Shop', route: './shop' } ]
-const Navigation = () => (
+const links = [ { label: 'Shop', route: '/shop' } ]
+const Navigation = ({ location }) => (
   <Div
     position='fixed'
     top='0'
@@ -23,7 +23,7 @@ const Navigation = () => (
         <Ul display='flex' listStyle='none'>
           {links.map((link, i) => (
             <Li>
-              <LinkUi>
+              <LinkUi active={location.pathname === link.route}>
                 {styles => (
                   <Link to={link.route} {...styles}>
                     {link.label}
@@ -33,15 +33,15 @@ const Navigation = () => (
             </Li>
             ))}
         </Ul>
-        <LinkUi>
-          {styles => <Cart styles={styles} />}
+        <LinkUi active={location.pathname === '/checkout'} decoration='none'>
+          {styles => <Link to='/checkout'><Cart styles={styles} /></Link>}
         </LinkUi>
       </Div>
     </Nav>
   </Div>
 )
 
-export default Navigation
+export default withRouter(Navigation)
 
 const Cart = ({ width = 22, height = 20, styles }) => (
   <svg
