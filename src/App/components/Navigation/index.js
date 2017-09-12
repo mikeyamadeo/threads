@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Link as LinkUi, Logo, Flex } from 'App/UI'
 
 export const NavHeight = '50px'
 
-const links = [ { label: 'Shop', route: './shop' } ]
-const Navigation = () => (
+const links = [ { label: 'Shop', route: '/shop' } ]
+const Navigation = ({ location }) => (
   <Flex
     position='fixed'
     top='0'
@@ -21,25 +21,25 @@ const Navigation = () => (
         <Flex is='ul' listStyle='none'>
           {links.map((link, i) => (
             <li>
-              <LinkUi>
-                {styles => (
-                  <Link to={link.route} {...styles}>
-                    {link.label}
-                  </Link>
-                    )}
-              </LinkUi>
+            <LinkUi active={location.pathname === link.route}>
+              {styles => (
+                <Link to={link.route} {...styles}>
+                  {link.label}
+                </Link>
+                  )}
+            </LinkUi>
             </li>
             ))}
         </Flex>
-        <LinkUi>
-          {styles => <Cart styles={styles} />}
+        <LinkUi active={location.pathname === '/checkout'} decoration='none'>
+          {styles => <Link to='/checkout'><Cart styles={styles} /></Link>}
         </LinkUi>
       </Flex>
     </Flex>
   </Flex>
 )
 
-export default Navigation
+export default withRouter(Navigation)
 
 const Cart = ({ width = 22, height = 20, styles }) => (
   <svg
