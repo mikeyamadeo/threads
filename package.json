@@ -13,6 +13,7 @@
   "author": "Mikey Murphy <mikeyamadeo@gmail.com> (https://twitter.com/TranscendMikey)",
   "license": "ISC",
   "dependencies": {
+    "create-react-class": "^15.6.0",
     "glamor": "^2.20.37",
     "glamorous": "^4.8.0",
     "prop-types": "^15.5.10",
@@ -30,6 +31,7 @@
     "@storybook/addon-actions": "^3.2.6",
     "@storybook/addon-links": "^3.2.6",
     "@storybook/react": "^3.2.8",
+    "image-webpack-loader": "^3.4.2",
     "prepacked": "3.1.0"
   },
   "standard": {

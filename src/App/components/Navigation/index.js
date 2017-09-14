@@ -21,13 +21,13 @@ const Navigation = ({ location }) => (
         <Flex is='ul' listStyle='none'>
           {links.map((link, i) => (
             <li>
-            <LinkUi active={location.pathname === link.route}>
-              {styles => (
-                <Link to={link.route} {...styles}>
-                  {link.label}
-                </Link>
-                  )}
-            </LinkUi>
+              <LinkUi active={location.pathname === link.route}>
+                {styles => (
+                  <Link to={link.route} {...styles}>
+                    {link.label}
+                  </Link>
+                    )}
+              </LinkUi>
             </li>
             ))}
         </Flex>

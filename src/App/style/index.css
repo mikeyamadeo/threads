@@ -1,6 +1,6 @@
-@import "./reset";
-@import "./normalize";
-@import "./box-sizing";
+@import "./reset.css";
+@import "./normalize.css";
+@import "./box-sizing.css";
 
 html,
 body,
